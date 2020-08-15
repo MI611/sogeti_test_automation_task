@@ -1,0 +1,26 @@
+{
+  "name": "sogeti_test_automation_task",
+  "version": "1.0.0",
+  "description": "Test automation task from Sogeti",
+  "main": "sogeti_test_automation_task",
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.1",
+    "qunit": "^2.10.1"
+  },
+  "scripts": {
+    "test": "runtest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MI611/sogeti_test_automation_task.git"
+  },
+  "author": "Michael Bergmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MI611/sogeti_test_automation_task/issues"
+  },
+  "homepage": "https://github.com/MI611/sogeti_test_automation_task#readme"
+}
