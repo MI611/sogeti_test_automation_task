@@ -8,6 +8,7 @@ const elementText = "Automation";
     let driver = await new Builder().forBrowser('chrome').build();
     try {
         await driver.get(linkToOpen);
+        console.log('Opened ' + linkToOpen);
         await driver.sleep(2000);
         await hoverLink(driver, elementToHover);
         await clickLink(driver, elementToClick, elementText);

@@ -27,6 +27,7 @@ const requiredMessageCheckboxName = "//span[@data-f-linked-name='__field_123935'
     let driver = await new Builder().forBrowser('chrome').build();
     try {
         await driver.get(linkToOpen);
+        console.log('Opened ' + linkToOpen);
         await driver.sleep(2000);
         await hoverLinkAndClickToNavigate(driver, elementToHover, elementToClick, elementText);
         await driver.sleep(1000);
