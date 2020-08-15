@@ -16,6 +16,7 @@ Click "NEXT" until the project gets cloned
 
 
 
+
 # git init repository
 Create directory locally and run
 git init
@@ -30,6 +31,9 @@ npm install selenium-webdriver
 # Install Browser drivers
 npm install -g chromedriver
 npm install -g geckodriver 
+
+# Install Faker JS for getting random generated data
+npm i faker
 
 Driver exe's can be found (not necessary if using npm):
 Chrome: https://chromedriver.storage.googleapis.com/index.html?path=84.0.4147.30/

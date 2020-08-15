@@ -4,6 +4,7 @@
   "description": "Test automation task from Sogeti",
   "main": "sogeti_test_automation_task",
   "dependencies": {
+    "faker": "^4.1.0",
     "selenium-webdriver": "^4.0.0-alpha.7"
   },
   "devDependencies": {

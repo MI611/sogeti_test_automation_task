@@ -20,14 +20,14 @@ const elementText = "Automation";
 
 let hoverLink = async function(driver, hoverElement) {
     console.log('Moving mouse to hover element...');
-    const actions = driver.actions({bridge: true}); var elem=await driver.findElement(By.xpath(hoverElement)); await actions.move({duration:3000,origin:elem,x:0,y:0}).perform();
+    const actions = driver.actions({bridge: true}); let elem=await driver.findElement(By.xpath(hoverElement)); await actions.move({duration:3000,origin:elem,x:0,y:0}).perform();
     console.log('Element hovered...');
     await driver.sleep(1000);
 };
 
 let clickLink = async function(driver, clickElement, pageTitle) {
     console.log('Clicking element...');
-    const actions = driver.actions({bridge: true}); var element=await driver.findElement(By.xpath(clickElement)); await actions.click(element).perform();
+    const actions = driver.actions({bridge: true}); let element=await driver.findElement(By.xpath(clickElement)); await actions.click(element).perform();
     console.log('Element clicked ...');
     console.log('Checking page title for: ' + pageTitle);
     await driver.wait(until.titleIs(pageTitle), 1000);
