@@ -38,7 +38,8 @@ let checkMultipleLinksWorking = async function(driver) {
         });
         await driver.getCurrentUrl().then((pageurl) => {
             console.log("Url of opened tab: " + pageurl);
-            let linkUrl = c.getAttribute('href').then((link) => {
+            let linkUrl = c.getAttribute('href');
+            linkUrl.then((link) => {
                 if (link == pageurl) {
                     console.log("Url of link: " + link + " equals url of opened page: " + pageurl);
                     console.log("Link is working! ...");
