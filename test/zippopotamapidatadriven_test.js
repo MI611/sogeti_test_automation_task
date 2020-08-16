@@ -11,7 +11,7 @@ let places = [
     { 'country' : 'ca', 'postal_code': 'B2R', 'place_name': 'Waverley'}
 ];
 
-describe('When the links are working as expected', function() {
+describe('Zippopotam API data driven test - When the links are working as expected it ...', function() {
     places.forEach(({country, postal_code, place_name }) => {
         it(`should return 200 for request http://api.zippopotam.us/${country}/${postal_code}`, function(done) {
             chai.request(url)

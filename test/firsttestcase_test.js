@@ -23,11 +23,6 @@ describe('Test Case 1', function () {
                 console.log('Opened ' + linkToOpen);
                 await driver.sleep(2000);
                 await hoverLink(driver, elementToHover);
-                assertPageTitle = await clickLink(driver, elementToClick, elementText).then((pTitle) => {
-                    return pTitle;
-                });
-                addContext(_this, assertPageTitle);
-                console.log("page title: " + assertPageTitle);
                 await driver.sleep(3000);
                 await hoverLink(driver, elementToHover);
             } finally {
@@ -36,6 +31,8 @@ describe('Test Case 1', function () {
         })()
     });
 });
+
+
 
 let hoverLink = async function(driver, hoverElement) {
     console.log('Moving mouse to hover element...');
