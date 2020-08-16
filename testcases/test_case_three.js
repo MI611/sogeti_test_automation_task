@@ -25,7 +25,9 @@ let checkMultipleLinksWorking = async function(driver) {
     let counterOfWorkingLinks = 0;
     for (let country = 0; country < countryList.length; country++) {
         console.log("Checking link with index: " + country);
-        const actions = await driver.actions({bridge: true}); await actions.click(countryList[country]).perform();
+       //const actions = await driver.actions({bridge: true});
+       // await actions.click(countryList[country]).perform();
+        dri
         console.log("Link clicked...");
         console.log("Switching to other tab to verify url...");
         let tabs = await driver.getAllWindowHandles();
