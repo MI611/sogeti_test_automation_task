@@ -12,22 +12,12 @@ const elementToCheck = "//li[@data-levelname='level2']//span";
         await driver.get(linkToOpen);
         console.log('Opened ' + linkToOpen);
         await driver.sleep(2000);
-        await hoverLink(driver, elementToHover);
-        await clickLink(driver, elementToClick, elementText);
-        await driver.sleep(3000);
-        await hoverLink(driver, elementToHover);
+        await navigateToPage(driver, elementToHover, elementToClick, elementText);
         await checkActiveLinks(driver, elementToCheck, elementToClick);
     } finally {
         await driver.quit();
     }
 })();
-
-let hoverLink = async function(driver, hoverElement) {
-    console.log('Moving mouse to hover element...');
-    const actions = driver.actions({bridge: true}); let elem=await driver.findElement(By.xpath(hoverElement)); await actions.move({duration:3000,origin:elem,x:0,y:0}).perform();
-    console.log('Element hovered...');
-    await driver.sleep(1000);
-};
 
 let checkActiveLinks = async function(driver, hoverElement, elementToClick) {
     let level1MenuLink = await driver.findElement(By.xpath(hoverElement)).getCssValue("color");
@@ -40,7 +30,11 @@ let checkActiveLinks = async function(driver, hoverElement, elementToClick) {
     await driver.sleep(1000);
 };
 
-let clickLink = async function(driver, clickElement, pageTitle) {
+let navigateToPage = async function(driver, hoverElement, clickElement, pageTitle) {
+    console.log('Moving mouse to hover element...');
+    const act = driver.actions({bridge: true}); let elem=await driver.findElement(By.xpath(hoverElement)); await act.move({duration:3000,origin:elem,x:0,y:0}).perform();
+    console.log('Element hovered...');
+    await driver.sleep(500);
     console.log('Clicking element...');
     const actions = driver.actions({bridge: true}); let element=await driver.findElement(By.xpath(clickElement)); await actions.click(element).perform();
     console.log('Element clicked ...');
