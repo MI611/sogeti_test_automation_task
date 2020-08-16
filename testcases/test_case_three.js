@@ -29,6 +29,7 @@ let checkMultipleLinksWorking = async function(driver) {
         console.log("Checking link with index: " + country);
         let actions = await driver.actions({bridge: true});
         await actions.click(countryList[country]).perform();
+        let clickedLink = countryList[country].getAttribute('href');
         console.log("Link clicked...");
         console.log("Switching to other tab to verify url...");
         let tabs = await driver.getAllWindowHandles();
@@ -39,7 +40,7 @@ let checkMultipleLinksWorking = async function(driver) {
         console.log(await driver.getCurrentUrl());
         await driver.getCurrentUrl().then((pageurl) => {
             console.log("Url of opened tab: " + pageurl);
-            countryList[country].getAttribute('href').then((link) => {
+            clickedLink.then((link) => {
                 if (link == pageurl) {
                     console.log("Url of link: " + link + " equals url of opened page: " + pageurl);
                     console.log("Link is working! ...");
