@@ -19,9 +19,13 @@ npm install -g geckodriver
 # Install Faker JS for getting random generated data
 npm i faker
 
-# Install Mocha for test reports
+# Install Mocha and Chai for test reports and data driven tests
 npm install -g mocha
 npm install --save-dev mocha
+npm install -g chai
+npm install --save-dev chai
+npm install -g chai-http
+npm install --save-dev chai-http
 
 # Install Chakram for automated API tests
 npm install --save-dev chakram
@@ -31,6 +35,11 @@ node /testcases/[test_cases_file_you_want_to_execute].js
 
 # To run automated api test cases type in: 
 mocha /test/[test_cases_file_you_want_to_execute].js
+
+# Install mochawesome for getting test reports
+npm install --save-dev mochawesome
+npm install -g mochawesome-report-generator
+npm install -g mochawesome
 
 
 

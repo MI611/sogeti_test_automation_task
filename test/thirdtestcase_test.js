@@ -1,20 +1,32 @@
+const chakram = require('chakram'),
+    assert = require('assert'),
+    expect = require('chakram').expect,
+    should = require('chakram').should,
+    addContext = require('mochawesome/addContext');
+
+//Test Case 3
 const {Builder, By, Key, until} = require('selenium-webdriver');
 const linkToOpen = "https://www.sogeti.com/";
 const elementToClick = "sprite-header sprite-globe";
 const elementCountryListLinks = "//div[@class='country-list']//a";
 
-(async function checkWorldwideLinksOfSogetiPage() {
-    let driver = await new Builder().forBrowser('chrome').build();
-    try {
-        await driver.get(linkToOpen);
-        console.log('Opened ' + linkToOpen);
-        await driver.sleep(1000);
-        await checkMultipleLinksWorking(driver);
-        await driver.sleep(2000);
-    } finally {
-        await driver.quit();
-    }
-})();
+
+describe('Test Case 3', function () {
+    it('should navigate to sogeti.com click on worldwide and check if every link works as expected', function () {
+        (async function checkWorldwideLinksOfSogetiPage() {
+            let driver = await new Builder().forBrowser('chrome').build();
+            try {
+                await driver.get(linkToOpen);
+                console.log('Opened ' + linkToOpen);
+                await driver.sleep(1000);
+                await checkMultipleLinksWorking(driver);
+                await driver.sleep(2000);
+            } finally {
+                await driver.quit();
+            }
+        })();
+    });
+});
 
 let checkMultipleLinksWorking = async function(driver) {
 
@@ -45,6 +57,7 @@ let checkMultipleLinksWorking = async function(driver) {
                 }
             });
         });
+
         await driver.sleep(500);
         await driver.switchTo().window(tabs[0]);
         console.log("back to initial page");
@@ -65,5 +78,4 @@ let clickWorldwideLinkToOpenLinksBox = async function(driver) {
     console.log("Clicked Worldwide link/box to see Sogeti country links...");
     await driver.sleep(2000);
 };
-
 
