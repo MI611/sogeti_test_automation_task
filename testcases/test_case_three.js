@@ -18,16 +18,17 @@ const elementCountryListLinks = "//div[@class='country-list']//a";
 
 let checkMultipleLinksWorking = async function(driver) {
 
-    const actions = driver.actions({bridge: true}); let element=await driver.findElement(By.className(elementToClick)); await actions.click(element).perform();
+    let actions = driver.actions({bridge: true});
+    let element=await driver.findElement(By.className(elementToClick));
+    await actions.click(element).perform();
     console.log("Clicked Worldwide link/box to see Sogeti country links...");
 
     let countryList = await driver.findElements(By.xpath(elementCountryListLinks));
     let counterOfWorkingLinks = 0;
     for (let country = 0; country < countryList.length; country++) {
         console.log("Checking link with index: " + country);
-       //const actions = await driver.actions({bridge: true});
-       // await actions.click(countryList[country]).perform();
-        dri
+        let actions = await driver.actions({bridge: true});
+        await actions.click(countryList[country]).perform();
         console.log("Link clicked...");
         console.log("Switching to other tab to verify url...");
         let tabs = await driver.getAllWindowHandles();
@@ -35,7 +36,8 @@ let checkMultipleLinksWorking = async function(driver) {
         await driver.getTitle().then((pagetitle) => {
             console.log("Page title: " + pagetitle);
         });
-        await driver.getCurrentUrl().then((pageurl) => {
+        let currentUrl = await driver.getCurrentUrl();
+        await currenUrl.then((pageurl) => {
             console.log("Url of opened tab: " + pageurl);
             countryList[country].getAttribute('href').then((link) => {
                 if (link == pageurl) {
