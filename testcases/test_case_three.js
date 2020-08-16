@@ -8,7 +8,7 @@ const elementCountryListLinks = "//div[@class='country-list']//a";
     try {
         await driver.get(linkToOpen);
         console.log('Opened ' + linkToOpen);
-        await driver.sleep(1000);
+        await driver.sleep(5000);
         await checkMultipleLinksWorking(driver);
         await driver.sleep(2000);
     } finally {
