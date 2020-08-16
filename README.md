@@ -14,7 +14,6 @@ cd sogeti_test_automation_task
 npm install
 
 # Install globally drivers and libraries
-npm install -g chromedriver
 npm install -g geckodriver
 npm install -g mocha
 npm install -g chai
@@ -22,10 +21,10 @@ npm install -g chai-http
 npm install -g mochawesome-report-generator
 npm install -g mochawesome
 
-# Run single automated UI test in testcases folder via node to see automated testing in browser with console logs for verification and steps from root project folder
-node sogeti_test_automation_task/testcases/test_case_one.js
-node sogeti_test_automation_task/testcases/test_case_two.js
-node sogeti_test_automation_task/testcases/test_case_three.j
+# Run single automated UI test in testcases folder sogeti_test_automation_task/testcases/ via node to see automated testing in browser with console logs for verification and steps
+node test_case_one.js
+node test_case_two.js
+node test_case_three.js
 
 # To run single automated api test cases and get HTML report type, run the following in root project directory: 
 mocha --reporter mochawesome sogeti_test_automation_task/test/zippopotamapi_test.js
