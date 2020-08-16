@@ -47,7 +47,7 @@ let checkMultipleLinksWorking = async function(driver) {
                 }
             });
         });
-        await driver.sleep(500);
+        await driver.sleep(3000);
         await driver.switchTo().window(tabs[0]);
         console.log("back to initial page");
         await driver.sleep(500);
