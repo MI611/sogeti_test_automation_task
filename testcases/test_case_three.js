@@ -22,10 +22,12 @@ let checkMultipleLinksWorking = async function(driver) {
     console.log("Clicked Worldwide link/box to see Sogeti country links...");
 
     let countryList = await driver.findElements(By.xpath(elementCountryListLinks));
+    console.log(countryList);
     let counterOfWorkingLinks = 0;
     for (let country = 0; country < countryList.length; country++) {
         let c = countryList[country];
-        console.log("Checking link: " + country + 1);
+        console.log("Checking link with index: " + country);
+        console.log(c);
         const actions = await driver.actions({bridge: true}); await actions.click(c).perform();
         console.log("Link clicked...");
         console.log("Switching to other tab to verify url...");
