@@ -1,19 +1,3 @@
-
-/*
-let zipCodeTest = async function (country, zipcode, city) {
-    given().
-    pathParam("country",country).
-    pathParam("zipcode",zipcode).
-    when().
-    get("http://api.zippopotam.us/{country}/{zipcode}").
-    then().
-    assertThat().
-    body("places.'place name'[0]",equalTo(city));
-};
-
- */
-
-
 var expect = require('chai').expect,
     chai = require('chai'),
     chaiHttp = require('chai-http'),
