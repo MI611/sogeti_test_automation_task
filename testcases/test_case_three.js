@@ -18,7 +18,9 @@ const elementCountryListLinks = "//div[@class='country-list']//a";
 
 let checkMultipleLinksWorking = async function(driver) {
 
-    await clickWorldwideLinkToOpenLinksBox(driver);
+    const actions = driver.actions({bridge: true}); let element=await driver.findElement(By.className(elementToClick)); await actions.click(element).perform();
+    console.log("Clicked Worldwide link/box to see Sogeti country links...");
+    await driver.sleep(1000);
 
     let countryList = await driver.findElements(By.xpath(elementCountryListLinks));
     let counterOfWorkingLinks = 0;
@@ -58,12 +60,6 @@ let checkMultipleLinksWorking = async function(driver) {
     } else {
         console.log(countryList.length - counterOfWorkingLinks + " out of " + countryList.length + " links are not working");
     }
-};
-
-let clickWorldwideLinkToOpenLinksBox = async function(driver) {
-    const actions = driver.actions({bridge: true}); let element=await driver.findElement(By.className(elementToClick)); await actions.click(element).perform();
-    console.log("Clicked Worldwide link/box to see Sogeti country links...");
-    await driver.sleep(2000);
 };
 
 
