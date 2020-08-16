@@ -3,6 +3,8 @@ const linkToOpen = "https://www.sogeti.com/";
 const elementToHover = "//li[@data-levelname='level2']"; // Services li
 const elementToClick = "//a[@href='https://www.sogeti.com/services/automation/']"; // Automation link
 const elementText = "Automation";
+const elementToCheck = "//li[@data-levelname='level2']//span";
+
 
 (async function checkVisibilityOfPageAndText() {
     let driver = await new Builder().forBrowser('chrome').build();
@@ -14,6 +16,7 @@ const elementText = "Automation";
         await clickLink(driver, elementToClick, elementText);
         await driver.sleep(3000);
         await hoverLink(driver, elementToHover);
+        await checkActiveLinks(driver, elementToCheck, elementToClick);
     } finally {
         await driver.quit();
     }
@@ -23,6 +26,17 @@ let hoverLink = async function(driver, hoverElement) {
     console.log('Moving mouse to hover element...');
     const actions = driver.actions({bridge: true}); let elem=await driver.findElement(By.xpath(hoverElement)); await actions.move({duration:3000,origin:elem,x:0,y:0}).perform();
     console.log('Element hovered...');
+    await driver.sleep(1000);
+};
+
+let checkActiveLinks = async function(driver, hoverElement, elementToClick) {
+    let level1MenuLink = await driver.findElement(By.xpath(hoverElement)).getCssValue("color");
+    let level2MenuLink = await driver.findElement(By.xpath(elementToClick)).getCssValue("color");
+    if (level1MenuLink == "rgba(255, 48, 76, 1)" && level2MenuLink == "rgba(255, 48, 76, 1)") {
+        console.log("Links are selected!");
+        console.log("Color of selection: " + level1MenuLink + " & " + level2MenuLink);
+        console.log("Case successful...");
+    }
     await driver.sleep(1000);
 };
 

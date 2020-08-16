@@ -1,3 +1,5 @@
+//IMPORTANT - TEST CASE IS NOT VALID IN TEST REPORT. AUTOMATED UI TESTS HAVE TO BE EXECUTED WITH NODE IN TESTCASES FOLDER
+/*
 const chakram = require('chakram'),
     assert = require('assert'),
     expect = require('chakram').expect,
@@ -78,4 +80,4 @@ let clickWorldwideLinkToOpenLinksBox = async function(driver) {
     console.log("Clicked Worldwide link/box to see Sogeti country links...");
     await driver.sleep(2000);
 };
-
+*/

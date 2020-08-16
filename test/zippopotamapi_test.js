@@ -1,7 +1,7 @@
 var chakram = require('chakram'),
     expect = require('chakram').expect;
 
-describe('Zippopotam API', function() {
+describe('Zippopotam API test', function() {
     it('should return a response with HTTP code 200', function() {
         let response = chakram.get("http://api.zippopotam.us/de/bw/stuttgart");
         expect(response).to.have.status(200);

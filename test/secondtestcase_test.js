@@ -1,3 +1,5 @@
+//IMPORTANT - TEST CASE IS NOT VALID IN TEST REPORT. AUTOMATED UI TESTS HAVE TO BE EXECUTED WITH NODE IN TESTCASES FOLDER
+/*
 const chakram = require('chakram'),
     assert = require('assert'),
     expect = require('chakram').expect,
@@ -176,3 +178,4 @@ let checkContactFormValidations = async function (driver) {
     });
 
 };
+*/
