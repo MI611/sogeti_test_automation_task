@@ -20,7 +20,6 @@ let checkMultipleLinksWorking = async function(driver) {
 
     const actions = driver.actions({bridge: true}); let element=await driver.findElement(By.className(elementToClick)); await actions.click(element).perform();
     console.log("Clicked Worldwide link/box to see Sogeti country links...");
-    await driver.sleep(1000);
 
     let countryList = await driver.findElements(By.xpath(elementCountryListLinks));
     let counterOfWorkingLinks = 0;
